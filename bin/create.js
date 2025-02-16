@@ -48,7 +48,7 @@ import { execSync } from "child_process";
   const scriptDir = path.dirname(import.meta.url).replace("file://", "");
 
   // Copy the project files
-  await fs.cp(path.join(scriptDir, `../${projectType}`), projectPath, {
+  await fs.cp(path.join(scriptDir, `../stubs/${projectType}`), projectPath, {
     recursive: true,
     filter: (src) => {
       const disAllowedDirs = ["obj", "bin", "node_modules", "build"];
