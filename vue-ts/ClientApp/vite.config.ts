@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
         laravel({
-            input: ["src/App.vue"],
+            input: ["src/App.ts"],
             publicDirectory: "../wwwroot",
             hotFile: "../wwwroot/build/hot",
             refresh: true,
