@@ -1,0 +1,28 @@
+{
+    "include": [
+        "src/**/*"
+    ],
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "noEmit": true,
+        "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "rootDir": "./src",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ],
+            "react": [
+                "./node_modules/@types/react"
+            ]
+        },
+        "types": [
+            "vite/client"
+        ]
+    }
+}
