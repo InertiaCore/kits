@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
         laravel({
-            input: ["src/App.jsx"],
+            input: ["src/App.tsx"],
             publicDirectory: "../wwwroot",
             refresh: true,
         }),
@@ -16,8 +16,6 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": "/src",
-            // /esm/icons/index.mjs only exports the icons statically, so no separate chunks are created
-            "@tabler/icons-react": "@tabler/icons-react/dist/esm/icons/index.mjs",
         },
     },
     build: {

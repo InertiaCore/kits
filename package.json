@@ -7,7 +7,7 @@
         "publish": "npm publish"
     },
     "bin": {
-        "inertiacore-kit": "./bin/create.js"
+        "inertiacore-kit": "bin/create.js"
     },
     "dependencies": {
         "node": "^20.8.0",
@@ -15,5 +15,7 @@
     },
     "devDependencies": {
         "@types/node": "^22.13.4"
-    }
+    },
+    "author": "adrum",
+    "license": "MIT"
 }

@@ -50,6 +50,10 @@ import { execSync } from "child_process";
   // Copy the project files
   await fs.cp(path.join(scriptDir, `../${projectType}`), projectPath, {
     recursive: true,
+    filter: (src) => {
+      const disAllowedDirs = ["obj", "bin", "node_modules", "build"];
+      return !disAllowedDirs.some((dir) => src.includes(dir));
+    },
   });
 
   // Rename and replace the project name
