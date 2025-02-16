@@ -26,6 +26,10 @@ import { execSync } from "child_process";
         title: "React + TypeScript",
         value: "react-ts",
       },
+      {
+        title: "Vue + TypeScript",
+        value: "vue-ts",
+      },
     ],
     initial: 0,
   });
