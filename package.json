@@ -1,0 +1,19 @@
+{
+    "name": "@inertiacore/create",
+    "version": "0.0.1",
+    "description": "InertiaCore Create",
+    "type": "module",
+    "scripts": {
+        "publish": "npm publish"
+    },
+    "bin": {
+        "inertiacore-kit": "./bin/create.js"
+    },
+    "dependencies": {
+        "node": "^20.8.0",
+        "prompts": "^2.4.2"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.4"
+    }
+}
