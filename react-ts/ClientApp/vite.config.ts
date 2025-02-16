@@ -9,6 +9,7 @@ export default defineConfig({
         laravel({
             input: ["src/App.tsx"],
             publicDirectory: "../wwwroot",
+            hotFile: "../wwwroot/build/hot",
             refresh: true,
         }),
         react(),

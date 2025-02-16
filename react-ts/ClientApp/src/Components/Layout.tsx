@@ -14,6 +14,6 @@ export function Layout({ title, children }: { title: React.ReactNode, children: 
             <div className="mt-4 p-4">
                 {children}
             </div>
-        </div >
+        </div>
     );
 }
