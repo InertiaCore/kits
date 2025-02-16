@@ -1,0 +1,24 @@
+{
+    "include": [
+        "src/**/*"
+    ],
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "noEmit": true,
+        "moduleResolution": "node",
+        "rootDir": "./src",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ],
+        },
+        "types": [
+            "vite/client"
+        ]
+    }
+}
