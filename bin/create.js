@@ -49,12 +49,12 @@ import { exec } from "child_process";
   // Create the project directory
   await fs.mkdir(projectPath);
 
+  const isWindows = process.platform === "win32";
+  let replacement = isWindows ? "file:///" : "file:";
+
   // Current Script dir
   const scriptDir = await fs.realpath(
-    path
-      .dirname(import.meta.url)
-      .replace("file:///", "")
-      .replace("file:", "")
+    path.dirname(import.meta.url).replace(replacement, "")
   );
 
   // Copy the project files
