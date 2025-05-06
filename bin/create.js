@@ -2,7 +2,7 @@
 import path from "path";
 import * as fs from "fs/promises";
 import prompts from "prompts";
-import { execSync } from "child_process";
+import { exec } from "child_process";
 
 (async () => {
   // Get the name
@@ -54,13 +54,17 @@ import { execSync } from "child_process";
   );
 
   // Copy the project files
-  await fs.cp(path.join(scriptDir, `../stubs/${projectType}`), projectPath, {
-    recursive: true,
-    filter: (src) => {
-      const disAllowedDirs = ["obj", "bin", "node_modules", "build"];
-      return !disAllowedDirs.some((dir) => src.includes(dir));
-    },
-  });
+  await fs.cp(
+    path.join(scriptDir, `..`, `stubs`, `${projectType}`),
+    projectPath,
+    {
+      recursive: true,
+      filter: (src) => {
+        const disAllowedDirs = ["obj", "bin", "node_modules", "build"];
+        return !disAllowedDirs.some((dir) => src.includes(dir));
+      },
+    }
+  );
 
   // Rename and replace the project name
   await fs.rename(
@@ -101,8 +105,19 @@ import { execSync } from "child_process";
     );
   }
 
-  // Install the dependencies
-  execSync(`npm install`, { cwd: path.join(projectPath, "ClientApp") });
+  try {
+    // Install the dependencies
+    console.log("Installing dependencies...");
+    await exec(`npm install`, {
+      cwd: await fs.realpath(path.join(projectPath, "ClientApp")),
+    });
+
+    console.log("Dependencies installed successfully");
+  } catch (error) {
+    console.warn("Please install the dependencies manually");
+    console.warn("cd ClientApp");
+    console.warn("npm install");
+  }
 
   console.log(`Project created successfully at ${projectPath}`);
 })();
