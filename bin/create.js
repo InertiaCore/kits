@@ -45,26 +45,30 @@ import { exec } from "child_process";
     process.exit(1);
   } catch (error) {}
 
+  console.log(`Creating project at \`${projectPath}\`...`);
   // Create the project directory
   await fs.mkdir(projectPath);
 
   // Current Script dir
   const scriptDir = await fs.realpath(
-    path.dirname(import.meta.url).replace("file:", "")
+    path
+      .dirname(import.meta.url)
+      .replace("file:///", "")
+      .replace("file:", "")
   );
 
   // Copy the project files
-  await fs.cp(
-    path.join(scriptDir, `..`, `stubs`, `${projectType}`),
-    projectPath,
-    {
-      recursive: true,
-      filter: (src) => {
-        const disAllowedDirs = ["obj", "bin", "node_modules", "build"];
-        return !disAllowedDirs.some((dir) => src.includes(dir));
-      },
-    }
+  const from = await fs.realpath(
+    path.join(scriptDir, `..`, `stubs`, `${projectType}`)
   );
+  const to = await fs.realpath(projectPath);
+  await fs.cp(from, to, {
+    recursive: true,
+    filter: (src) => {
+      const disAllowedDirs = ["obj", "bin", "build"];
+      return !disAllowedDirs.some((dir) => src.includes(dir));
+    },
+  });
 
   // Rename and replace the project name
   await fs.rename(
