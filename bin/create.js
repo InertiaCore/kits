@@ -49,7 +49,9 @@ import { execSync } from "child_process";
   await fs.mkdir(projectPath);
 
   // Current Script dir
-  const scriptDir = path.dirname(import.meta.url).replace("file://", "");
+  const scriptDir = await fs.realpath(
+    path.dirname(import.meta.url).replace("file:", "")
+  );
 
   // Copy the project files
   await fs.cp(path.join(scriptDir, `../stubs/${projectType}`), projectPath, {
