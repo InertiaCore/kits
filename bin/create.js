@@ -17,6 +17,11 @@ import { exec } from "child_process";
     process.exit(1);
   }
 
+  const nameSpace = projectName
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("");
+
   const { value: projectType } = await prompts({
     type: "select",
     name: "value",
@@ -73,7 +78,7 @@ import { exec } from "child_process";
   // Rename and replace the project name
   await fs.rename(
     path.join(projectPath, "ProjectName.csproj"),
-    path.join(projectPath, `${projectName}.csproj`)
+    path.join(projectPath, `${nameSpace}.csproj`)
   );
 
   // Loop through all the files in the project and replace the project name
@@ -105,7 +110,7 @@ import { exec } from "child_process";
     );
     await fs.writeFile(
       path.join(file.parentPath, file.name),
-      content.replaceAll("ProjectName", projectName)
+      content.replaceAll("ProjectName", nameSpace)
     );
   }
 
