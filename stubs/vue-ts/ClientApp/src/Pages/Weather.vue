@@ -15,10 +15,10 @@ defineProps<{
 
 <template>
     <Layout title="Weather">
-        <div className="flex flex-col gap-4 max-w-4xl mx-auto">
+        <div class="flex flex-col gap-4 max-w-4xl mx-auto">
             <table>
                 <thead>
-                    <tr className="text-left">
+                    <tr class="text-left">
                         <th>Date</th>
                         <th>Temp. (C)</th>
                         <th>Temp. (F)</th>
