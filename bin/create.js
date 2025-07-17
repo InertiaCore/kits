@@ -35,6 +35,10 @@ import { exec } from "child_process";
         title: "Vue + TypeScript",
         value: "vue-ts",
       },
+      {
+        title: "Svelte + TypeScript",
+        value: "svelte-ts",
+      },
     ],
     initial: 0,
   });

@@ -12,7 +12,7 @@ npx @inertiacore/create@latest
 
 This will create a new project with the name you provide.
 
-You can choose between a React or Vue project.
+You can choose between a React, Vue, or Svelte project.
 
 ## Run the project
 
