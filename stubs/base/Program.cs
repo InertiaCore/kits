@@ -30,12 +30,11 @@ app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
 app.UseInertia();
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseMiddleware<CsrfMiddleware>();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
-
-app.MapFallbackToFile("index.html");
 
 app.Run();
