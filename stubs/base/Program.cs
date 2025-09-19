@@ -1,12 +1,19 @@
 using InertiaCore.Extensions;
+using ProjectName.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddSessionStateTempDataProvider();
+
+builder.Services.AddSession();
 builder.Services.AddInertia();
 builder.Services.AddViteHelper();
+
+// Configure CSRF/Antiforgery protection
+builder.Services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 
 var app = builder.Build();
 
@@ -19,8 +26,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseStaticFiles();
+
+app.UseSession();
 app.UseRouting();
 app.UseInertia();
+app.UseMiddleware<CsrfMiddleware>();
 
 app.MapControllerRoute(
     name: "default",
