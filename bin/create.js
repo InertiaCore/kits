@@ -66,6 +66,20 @@ import { exec } from "child_process";
     path.dirname(import.meta.url).replace(replacement, "")
   );
 
+  const filter = (src) => {
+    const disAllowedDirs = ["obj", "bin", "build"];
+    return !disAllowedDirs.some((dir) => src.includes(dir));
+  };
+
+  // Copy the base files
+  const fromBase = await fs.realpath(
+    path.join(scriptDir, `..`, `stubs`, `base`)
+  );
+  const toBase = await fs.realpath(projectPath);
+  await fs.cp(fromBase, toBase, {
+    recursive: true,
+    filter,
+  });
   // Copy the project files
   const from = await fs.realpath(
     path.join(scriptDir, `..`, `stubs`, `${projectType}`)
@@ -73,10 +87,7 @@ import { exec } from "child_process";
   const to = await fs.realpath(projectPath);
   await fs.cp(from, to, {
     recursive: true,
-    filter: (src) => {
-      const disAllowedDirs = ["obj", "bin", "build"];
-      return !disAllowedDirs.some((dir) => src.includes(dir));
-    },
+    filter,
   });
 
   // Rename and replace the project name
