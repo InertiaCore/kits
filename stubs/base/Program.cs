@@ -32,6 +32,7 @@ app.UseRouting();
 app.UseInertia();
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseMiddleware<CsrfMiddleware>();
+app.UseMiddleware<HandleInertiaRequests>();
 
 app.MapControllerRoute(
     name: "default",
