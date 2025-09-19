@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
     <div class=" bg-gray-50 min-h-screen">
-        <Head title={title} />
+        <Head :title="title" />
         <div class="flex justify-between items-center bg-white border-b border-gray-200 p-4">
             <h1 class="text-2xl font-bold">{{title}}</h1>
             <div class="flex gap-4">
