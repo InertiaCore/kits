@@ -9,7 +9,6 @@ export default defineConfig({
         laravel({
             input: ['src/App.ts'],
             publicDirectory: '../wwwroot',
-            hotFile: '../wwwroot/build/hot',
             refresh: true,
         }),
         svelte(),

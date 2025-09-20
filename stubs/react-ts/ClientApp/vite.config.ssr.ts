@@ -10,7 +10,6 @@ export default defineConfig({
             input: ["src/App.tsx"],
             ssr: "src/ssr.tsx",
             publicDirectory: "../wwwroot",
-            hotFile: "../wwwroot/build/hot",
             refresh: true,
         }),
         react(),

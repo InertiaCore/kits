@@ -10,7 +10,6 @@ export default defineConfig({
             input: ["src/App.ts"],
             ssr: "src/ssr.ts",
             publicDirectory: "../wwwroot",
-            hotFile: "../wwwroot/build/hot",
             refresh: true,
         }),
         vue({
