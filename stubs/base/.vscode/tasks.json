@@ -4,17 +4,17 @@
         {
             "label": "dotnet build",
             "type": "shell",
-            "command": "dotnet build"
+            "command": "dotnet build --project ProjectName.csproj"
         },
         {
             "label": "dotnet run",
             "type": "shell",
-            "command": "dotnet run"
+            "command": "dotnet run --project ProjectName.csproj"
         },
         {
             "label": "dotnet watch",
             "type": "shell",
-            "command": "dotnet watch"
+            "command": "dotnet watch --project ProjectName.csproj"
         },
         {
             "label": "npm run build",

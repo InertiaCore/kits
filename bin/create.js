@@ -115,7 +115,7 @@ import { exec } from "child_process";
       "html",
       "cshtml",
     ];
-    // Only Change .cs files
+    // Only Change certain files
     if (!allowedExtensions.includes(file.name.split(".").pop())) {
       continue;
     }
