@@ -1,15 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import laravel from "laravel-vite-plugin";
+import inertiacore from "@inertiacore/vite-plugin";
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
     plugins: [
         tailwindcss(),
-        laravel({
+        inertiacore({
             input: ["src/App.tsx"],
             ssr: "src/ssr.tsx",
-            publicDirectory: "../wwwroot",
             refresh: true,
         }),
         react(),

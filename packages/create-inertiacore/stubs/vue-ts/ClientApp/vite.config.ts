@@ -1,14 +1,13 @@
 import { defineConfig } from "vite";
 import vue from '@vitejs/plugin-vue';
-import laravel from "laravel-vite-plugin";
+import inertiacore from "@inertiacore/vite-plugin";
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
     plugins: [
         tailwindcss(),
-        laravel({
+        inertiacore({
             input: ["src/App.ts"],
-            publicDirectory: "../wwwroot",
             refresh: true,
         }),
         vue({

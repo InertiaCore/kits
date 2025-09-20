@@ -1,14 +1,13 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import tailwindcss from '@tailwindcss/vite';
-import laravel from 'laravel-vite-plugin';
+import inertiacore from '@inertiacore/vite-plugin';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
         tailwindcss(),
-        laravel({
+        inertiacore({
             input: ['src/App.ts'],
-            publicDirectory: '../wwwroot',
             refresh: true,
         }),
         svelte(),
