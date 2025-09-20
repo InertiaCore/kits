@@ -1,0 +1,17 @@
+{
+    "name": "@inertiacore/create",
+    "version": "1.0.0",
+    "description": "InertiaCore Create - Wrapper for create-inertiacore",
+    "type": "module",
+    "scripts": {
+        "publish": "npm publish --access public"
+    },
+    "bin": {
+        "create": "bin/create.js"
+    },
+    "dependencies": {
+        "create-inertiacore": "^0.0.9"
+    },
+    "author": "adrum",
+    "license": "MIT"
+}
