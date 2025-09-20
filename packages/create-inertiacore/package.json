@@ -1,5 +1,5 @@
 {
-    "name": "@inertiacore/create",
+    "name": "create-inertiacore",
     "version": "0.0.9",
     "description": "InertiaCore Create",
     "type": "module",
@@ -7,14 +7,17 @@
         "publish": "npm publish --access public"
     },
     "bin": {
-        "inertiacore-kit": "bin/create.js"
+        "create-inertiacore": "bin/create.js"
     },
     "dependencies": {
         "node": "^20.8.0",
         "prompts": "^2.4.2"
     },
     "devDependencies": {
-        "@types/node": "^22.13.4"
+        "@types/node": "^22.13.4",
+        "eslint": "^9.36.0",
+        "eslint-plugin-svelte": "^3.12.3",
+        "globals": "^16.4.0"
     },
     "author": "adrum",
     "license": "MIT"
