@@ -20,15 +20,12 @@ public class CsrfMiddleware
         var method = context.Request.Method.ToUpperInvariant();
         var isSafeMethod = method == "GET" || method == "HEAD" || method == "OPTIONS" || method == "TRACE";
 
-        logger.LogInformation("CSRF Middleware: Processing {Method} request to {Path}", method, context.Request.Path);
-
         // Validate CSRF for state-changing HTTP methods
         if (!isSafeMethod)
         {
             try
             {
                 await antiforgery.ValidateRequestAsync(context);
-                logger.LogInformation("CSRF Middleware: Token validation successful");
             }
             catch (AntiforgeryValidationException ex)
             {
