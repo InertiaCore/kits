@@ -4,11 +4,16 @@ using ProjectName.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllersWithViews()
     .AddSessionStateTempDataProvider();
 
-builder.Services.AddSession();
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "ProjectName.Session";
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
 builder.Services.AddInertia();
 builder.Services.AddViteHelper();
 
