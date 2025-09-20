@@ -1,23 +1,23 @@
-import { defineConfig } from "vite";
-import { svelte } from "@sveltejs/vite-plugin-svelte";
-import laravel from "laravel-vite-plugin";
-import tailwindcss from "@tailwindcss/vite";
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import tailwindcss from '@tailwindcss/vite';
+import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
         tailwindcss(),
         laravel({
-            input: ["src/App.ts"],
-            ssr: "src/ssr.ts",
-            publicDirectory: "../wwwroot",
-            hotFile: "../wwwroot/build/hot",
+            input: ['src/App.ts'],
+            ssr: 'src/ssr.ts',
+            publicDirectory: '../wwwroot',
+            hotFile: '../wwwroot/build/hot',
             refresh: true,
         }),
         svelte(),
     ],
     resolve: {
         alias: {
-            "@": "/src",
+            '@': '/src',
         },
     },
     build: {

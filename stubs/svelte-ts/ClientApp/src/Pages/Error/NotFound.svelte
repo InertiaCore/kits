@@ -1,26 +1,30 @@
 <script lang="ts">
-  import Layout from "@/Components/Layout.svelte";
-  import { Link } from "@inertiajs/svelte";
+    import Layout from '@/Components/Layout.svelte';
+    import { Link } from '@inertiajs/svelte';
 </script>
 
 <svelte:head>
-  <title>404 Not Found</title>
+    <title>404 Not Found</title>
 </svelte:head>
 
 <Layout title="404 Not Found">
-  <div class="p-4 gap-y-4 flex flex-col">
-    <h1 class="text-6xl font-bold text-gray-900 mb-4">404</h1>
-    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Page Not Found</h2>
-    <p class="text-gray-600 mb-8">The page you're looking for doesn't exist.</p>
-    <p class="text-gray-600 mb-8">
-      {window.location.href}
-    </p>
+    <div class="flex flex-col gap-y-4 p-4">
+        <h1 class="mb-4 text-6xl font-bold text-gray-900">404</h1>
+        <h2 class="mb-4 text-2xl font-semibold text-gray-700">
+            Page Not Found
+        </h2>
+        <p class="mb-8 text-gray-600">
+            The page you're looking for doesn't exist.
+        </p>
+        <p class="mb-8 text-gray-600">
+            {window.location.href}
+        </p>
 
-    <Link
-      href="/"
-      class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded"
-    >
-      Go Home
-    </Link>
-  </div>
+        <Link
+            href="/"
+            class="inline-block rounded bg-blue-500 px-4 py-2 font-medium text-white hover:bg-blue-600"
+        >
+            Go Home
+        </Link>
+    </div>
 </Layout>
