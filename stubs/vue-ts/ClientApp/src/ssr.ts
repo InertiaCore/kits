@@ -1,9 +1,9 @@
-import './App.css'
 import { createInertiaApp } from '@inertiajs/vue3';
 import createServer from '@inertiajs/vue3/server';
 import { renderToString } from '@vue/server-renderer';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createSSRApp, DefineComponent, h } from 'vue';
+import './App.css';
 
 createServer((page) =>
     createInertiaApp({
@@ -15,8 +15,7 @@ createServer((page) =>
                 import.meta.glob<DefineComponent>('./Pages/**/*.vue'),
             ),
         setup({ App, props, plugin }) {
-            return createSSRApp({ render: () => h(App, props) })
-                .use(plugin);
+            return createSSRApp({ render: () => h(App, props) }).use(plugin);
         },
     }),
 );

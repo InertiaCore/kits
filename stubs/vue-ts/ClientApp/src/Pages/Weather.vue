@@ -6,16 +6,16 @@ type WeatherForecast = {
     temperatureF: number;
     temperatureC: number;
     summary: string;
-}
+};
 
 defineProps<{
-    forecasts: WeatherForecast[]
+    forecasts: WeatherForecast[];
 }>();
 </script>
 
 <template>
     <Layout title="Weather">
-        <div class="flex flex-col gap-4 max-w-4xl mx-auto">
+        <div class="mx-auto flex max-w-4xl flex-col gap-4">
             <table>
                 <thead>
                     <tr class="text-left">
@@ -26,7 +26,11 @@ defineProps<{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="forecast in forecasts" :key="forecast.date" class="border-b border-gray-200 py-2 even:bg-gray-50">
+                    <tr
+                        v-for="forecast in forecasts"
+                        :key="forecast.date"
+                        class="border-b border-gray-200 py-2 even:bg-gray-50"
+                    >
                         <td>{{ forecast.date }}</td>
                         <td>{{ forecast.temperatureC }}</td>
                         <td>{{ forecast.temperatureF }}</td>
