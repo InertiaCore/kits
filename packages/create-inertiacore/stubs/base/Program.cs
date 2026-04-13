@@ -34,6 +34,23 @@ app.UseStaticFiles();
 
 app.UseSession();
 app.UseRouting();
+
+// Render a custom Inertia error page when an unhandled exception occurs.
+var isDevelopment = app.Environment.IsDevelopment();
+app.UseInertiaExceptionHandler(response =>
+{
+    response
+        .StatusCode(500)
+        .Render("Error/ServerError", new
+        {
+            message = isDevelopment
+                ? response.Exception.Message
+                : "An unexpected error occurred. Please try again later.",
+            stackTrace = isDevelopment ? response.Exception.StackTrace : null,
+        })
+        .WithSharedData();
+});
+
 app.UseInertia();
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseMiddleware<CsrfMiddleware>();
