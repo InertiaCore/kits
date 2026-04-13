@@ -1,0 +1,37 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: write # Required to create GitHub releases
+
+env:
+  INERTIACORE_BYPASS_ENV_CHECK: 1
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+      - run: npm install -g npm@latest
+      - run: rm -f .npmrc ~/.npmrc
+      - name: Publish create-inertiacore
+        working-directory: packages/create-inertiacore
+        run: |
+          npm install
+          npm run build --if-present
+          npm test --if-present
+          npm publish --provenance --access public
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true

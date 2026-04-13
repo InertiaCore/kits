@@ -1,8 +1,18 @@
 {
     "name": "create-inertiacore",
-    "version": "0.0.9",
+    "version": "2.0.0",
     "description": "InertiaCore Create",
     "type": "module",
+    "homepage": "https://github.com/InertiaCore/kits",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/InertiaCore/kits.git"
+    },
+    "license": "MIT",
+    "author": "InertiaCore",
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "publish": "npm publish --access public"
     },
@@ -18,7 +28,5 @@
         "eslint": "^9.36.0",
         "eslint-plugin-svelte": "^3.12.3",
         "globals": "^16.4.0"
-    },
-    "author": "adrum",
-    "license": "MIT"
+    }
 }
