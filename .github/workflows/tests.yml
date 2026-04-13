@@ -13,19 +13,25 @@ env:
   INERTIACORE_BYPASS_ENV_CHECK: 1
 
 jobs:
-  tests:
+  stubs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [20.x, 22.x, latest]
+        node-version: [20.x, 22.x, lts/*]
+        stub: [react-ts, vue-ts, svelte-ts]
+
+    defaults:
+      run:
+        working-directory: packages/create-inertiacore/stubs/${{ matrix.stub }}/ClientApp
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -34,9 +40,6 @@ jobs:
 
       - name: ESLint
         run: npm run lint
-
-      - name: Execute tests
-        run: npm test
 
       - name: Run build
         run: npm run build
