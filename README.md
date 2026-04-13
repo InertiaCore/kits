@@ -7,7 +7,7 @@ This repository contains examples of how to use [InertiaCore](https://github.com
 To create a new project using InertiaCore, run the following command:
 
 ```bash
-npx @inertiacore/create@latest
+npm init inertiacore@latest
 ```
 
 This will create a new project with the name you provide.
