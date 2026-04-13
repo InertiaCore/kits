@@ -6,7 +6,6 @@
     "printWidth": 80,
     "plugins": [
         "prettier-plugin-svelte",
-        "prettier-plugin-organize-imports",
         "prettier-plugin-tailwindcss"
     ],
     "tailwindFunctions": [
