@@ -6,7 +6,7 @@
         "target": "esnext",
         "module": "esnext",
         "noEmit": true,
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "jsx": "react-jsx",
         "rootDir": "./src",
         "strict": true,

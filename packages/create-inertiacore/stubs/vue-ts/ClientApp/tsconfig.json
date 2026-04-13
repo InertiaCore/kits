@@ -1,24 +1,18 @@
 {
-    "include": [
-        "src/**/*"
-    ],
+    "include": ["src/**/*"],
     "compilerOptions": {
         "target": "esnext",
         "module": "esnext",
         "noEmit": true,
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "rootDir": "./src",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "paths": {
-            "@/*": [
-                "./src/*"
-            ],
+            "@/*": ["./src/*"]
         },
-        "types": [
-            "vite/client"
-        ]
+        "types": ["vite/client"]
     }
 }

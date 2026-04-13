@@ -1,6 +1,6 @@
 {
     "name": "create-inertiacore",
-    "version": "2.0.0",
+    "version": "0.0.0",
     "description": "InertiaCore Create",
     "type": "module",
     "homepage": "https://github.com/InertiaCore/kits",
@@ -12,9 +12,6 @@
     "author": "InertiaCore",
     "publishConfig": {
         "access": "public"
-    },
-    "scripts": {
-        "publish": "npm publish --access public"
     },
     "bin": {
         "create-inertiacore": "bin/create.js"
