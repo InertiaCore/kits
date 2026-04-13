@@ -13,9 +13,6 @@
     "publishConfig": {
         "access": "public"
     },
-    "scripts": {
-        "publish": "npm publish --access public"
-    },
     "bin": {
         "create-inertiacore": "bin/create.js"
     },
