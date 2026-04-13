@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from '@vitejs/plugin-vue';
 import inertiacore from "@inertiacore/vite-plugin";
+import inertia from "@inertiajs/vite";
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
@@ -9,6 +10,9 @@ export default defineConfig({
         inertiacore({
             input: ["src/App.ts"],
             refresh: true,
+        }),
+        inertia({
+            ssr: false,
         }),
         vue({
             template: {

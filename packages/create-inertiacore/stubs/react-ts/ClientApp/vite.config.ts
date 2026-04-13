@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import inertiacore from "@inertiacore/vite-plugin";
+import inertia from "@inertiajs/vite";
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
@@ -9,6 +10,9 @@ export default defineConfig({
         inertiacore({
             input: ["src/App.tsx"],
             refresh: true,
+        }),
+        inertia({
+            ssr: false,
         }),
         react(),
     ],
