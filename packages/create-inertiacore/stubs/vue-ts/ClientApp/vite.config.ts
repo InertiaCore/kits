@@ -1,13 +1,13 @@
-import { defineConfig } from "vite";
+import inertiacore from '@inertiacore/vite-plugin';
+import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
-import inertiacore from "@inertiacore/vite-plugin";
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
     plugins: [
         tailwindcss(),
         inertiacore({
-            input: ["src/App.ts"],
+            input: ['src/App.ts'],
             refresh: true,
         }),
         vue({
@@ -21,7 +21,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            "@": "/src",
+            '@': '/src',
         },
     },
     build: {

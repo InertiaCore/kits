@@ -1,6 +1,6 @@
+import { resolvePageComponent } from '@inertiacore/vite-plugin/inertia-helpers';
 import { createInertiaApp } from '@inertiajs/react';
 import createServer from '@inertiajs/react/server';
-import { resolvePageComponent } from '@inertiacore/vite-plugin/inertia-helpers';
 import ReactDOMServer from 'react-dom/server';
 import './App.css';
 
